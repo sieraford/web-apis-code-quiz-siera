@@ -19,3 +19,20 @@ header {
     background-color: rgb(162, 67, 250);
 }
 
+.timer {
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+}
+
+.high-scores {
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    text-decoration: none;
+}
+
