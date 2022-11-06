@@ -2,10 +2,12 @@ var startButton = document.querySelector(".start-button");
 var timerElement = document.querySelector(".timer-count");
 var responseElement = document.querySelector("#response");
 var finalScoreElement = document.querySelector(".final-score");
+var initialsInput = document.querySelector("#initials");
 
 var timer;
 var timerCount;
 var isCorrect = false;
+var finalScore;
 
 
 // The startGame function is called when the start button is clicked
@@ -134,6 +136,31 @@ function checkQuestionFiveAnswer(event){
     }
 }
 
+function setHighScore(event) {
+    event.preventDefault();
+    var element = event.target;
+    if(element.matches("#submit")) {
+        toggleVisibility("response")
+        var highScore = {
+            initials: initialsInput.value.trim(),
+            score: timerCount
+        }
+    }
+    // set new submission to local storage 
+    localStorage.setItem("highScore", JSON.stringify(highScore));
+
+    // Need to push this score to array of all high scores
+    
+  }
+
+// This function is being called below and will run when the page loads.
+function init() {
+    // Get stored high scores from localStorage
+    var highScores = JSON.parse(localStorage.getItem("highScore"));
+
+    //need to do something else
+  }
+
 
 
 startButton.addEventListener("click", startGame);
@@ -142,3 +169,4 @@ document.addEventListener('click', checkQuestionTwoAnswer);
 document.addEventListener('click', checkQuestionThreeAnswer);
 document.addEventListener('click', checkQuestionFourAnswer);
 document.addEventListener('click', checkQuestionFiveAnswer);
+document.addEventListener('click', setHighScore);
