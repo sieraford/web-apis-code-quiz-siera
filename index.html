@@ -8,17 +8,73 @@
     <title>Coding Quiz</title>
 </head>
 <body>
-    <header class="hero-text">
+    <header class="start-page" id="start-text">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
         <button type="button" class="btn start-button">Start Quiz</button>
     </header>
-    <section>
-        <div class= "timer">
-            <div class="timer-text">Time: <span class="timer-count">75</span></div>
+    <main>
+        <section>
+            <div class= "timer">
+                <div class="timer-text">Time: <span class="timer-count">75</span></div>
+            </div>
+            <a href="" class="high-scores">View high scores</a>
+        </section>
+        <section id="quiz" class="question">
+            <div id="question-one" style="display: none">
+                <h2>Commonly used data types DO NOT include:</h2>
+                <div class="answers">
+                    <button class="btn answer q1">1. strings</button>
+                    <button class="btn answer q1">2. booleans</button>
+                    <button class="btn answer q1 correct">3. alerts</button>
+                    <button class="btn answer q1">4. numbers</button>
+                </div>
+            </div>
+            <div id="question-two" style="display: none">
+                <h2>The condition in an if / else statement is enclosed with ________.</h2>
+                <div class="answers">
+                    <button class="btn answer q2">1. quotes</button>
+                    <button class="btn answer q2">2. curly brackets</button>
+                    <button class="btn answer q2 correct">3. paranthesis</button>
+                    <button class="btn answer q2">4. square brackets</button>
+                </div>
+            </div>
+            <div id="question-three" style="display: none">
+                <h2>Arrays in Javascript can be used to store __________.</h2>
+                <div class="answers">
+                    <button class="btn answer q3">1. numbers and strings</button>
+                    <button class="btn answer q3">2. other arrays</button>
+                    <button class="btn answer q3">3. booleans</button>
+                    <button class="btn answer q3 correct">4. all of the above</button>
+                </div>
+            </div>
+            <div id="question-four" style="display: none">
+                <h2>String values must be enclosed within _________ when being assigned to variables.</h2>
+                <div class="answers">
+                    <button class="btn answer q4">1. commas</button>
+                    <button class="btn answer q4">2. curly brackets</button>
+                    <button class="btn answer q4 correct">3. quotes</button>
+                    <button class="btn answer q4">4. paranthesis</button>
+                </div>
+            </div>
+            <div id="question-five" style="display: none">
+                <h2>A very useful tool used during development and debugging for printing content to the debugger is:</h2>
+                <div class="answers">
+                    <button class="btn answer q5">1. Javascript</button>
+                    <button class="btn answer q5">2. terminal / bash</button>
+                    <button class="btn answer q5">3. for loops</button>
+                    <button class="btn answer q5 correct">4. console.log</button>
+                </div>
+            </div>
+        </section>
+        <div id="done-text" style="display: none" class="question">
+            <h2>All done!</h2>
+            <p>Your final score is <span class="final-score"></span>.</p>
+            <p>Enter initials: <input type="text"/><button id="submit" class="btn">Submit</button></p>
         </div>
-        <a href="" class="high-scores">View high scores</a>
-    </section>
+        <p id="response" class="question" style="display: none"></p>
+        
+    </main>
 
     <script src="assets/js/script.js"></script>
 </body>

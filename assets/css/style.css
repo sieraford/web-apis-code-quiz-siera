@@ -1,5 +1,5 @@
-/* Place text in the middle of the image */
-header {
+/* Place start page text in the center of the page*/
+.start-page {
     text-align: center;
     margin-left: 20%;
     margin-right: 20%;
@@ -36,3 +36,32 @@ header {
     text-decoration: none;
 }
 
+.question {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;    
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+}
+
+.answers .btn {
+    text-align: left;
+    width: 40%;
+    margin: 5px;
+}
+ #submit {
+    margin: 8px;
+    font-size: 12px;
+    padding: 4px 10px;
+ }
+
+ #response {
+    border-top: 1px solid rgb(117, 115, 115);
+    color: rgb(117, 115, 115);
+    padding-top: 10px;
+    font-style: italic;
+    font-size: 20px;
+ }
