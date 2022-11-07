@@ -8,19 +8,19 @@
     <title>Coding Quiz</title>
 </head>
 <body>
-    <header class="start-page" id="start-text">
+    <header class="start-page hideable" id="start-text">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
         <button type="button" class="btn start-button">Start Quiz</button>
     </header>
     <main>
-        <section>
+        <section class="hideable">
             <div class= "timer">
                 <div class="timer-text">Time: <span class="timer-count">75</span></div>
             </div>
-            <a href="" class="high-scores">View high scores</a>
+            <a id="view-high-scores" href="" class="high-scores">View high scores</a>
         </section>
-        <section id="quiz" class="question">
+        <section id="quiz" class="question hideable">
             <div id="question-one" style="display: none">
                 <h2>Commonly used data types DO NOT include:</h2>
                 <div class="answers">
@@ -67,12 +67,12 @@
                 </div>
             </div>
         </section>
-        <div id="done-text" style="display: none" class="question">
+        <div id="done-text" style="display: none" class="question hideable">
             <h2>All done!</h2>
             <p>Your final score is <span class="final-score"></span>.</p>
             <p>Enter initials: <input id="initials" type="text"/> <button id="submit" class="btn">Submit</button> </p>
         </div>
-        <p id="response" class="question" style="display: none"></p>
+        <p id="response" class="question hideable" style="display: none"></p>
         <div id="high-scores" style="display: none" class="question">
             <h2>High scores</h2>
             <ul id="high-scores-list"></ul>

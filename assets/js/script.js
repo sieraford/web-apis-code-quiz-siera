@@ -4,6 +4,7 @@ var responseElement = document.querySelector("#response");
 var finalScoreElement = document.querySelector(".final-score");
 var initialsInput = document.querySelector("#initials");
 var highScoresList = document.querySelector("#high-scores-list");
+var viewHighScoresButton = document.querySelector("#view-high-scores");
 
 var timer;
 var timerCount;
@@ -159,7 +160,8 @@ function setHighScore(event) {
 
 // The following function renders items in a todo list as <li> elements
 function renderHighScores() {
-  
+    // clear high scores list element
+    highScoresList.innerHTML = "";
     // Render a new li for each todo
     for (var i = 0; i < highScores.length; i++) {
   
@@ -188,6 +190,14 @@ function init() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
   }
 
+function showHighScores() {
+    var elementsToHide = document.getElementsByClassName("hideable"); 
+    for(var i = 0; i < elementsToHide.length; i++){
+        elementsToHide[i].style.display = "none";  
+    }
+    toggleVisibility("high-scores")
+}
+
 
 startButton.addEventListener("click", startGame);
 document.addEventListener('click', checkQuestionOneAnswer);
@@ -196,5 +206,6 @@ document.addEventListener('click', checkQuestionThreeAnswer);
 document.addEventListener('click', checkQuestionFourAnswer);
 document.addEventListener('click', checkQuestionFiveAnswer);
 document.addEventListener('click', setHighScore);
+viewHighScoresButton.addEventListener('click', showHighScores);
 
 init();
