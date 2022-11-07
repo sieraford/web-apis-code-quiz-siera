@@ -3,11 +3,13 @@ var timerElement = document.querySelector(".timer-count");
 var responseElement = document.querySelector("#response");
 var finalScoreElement = document.querySelector(".final-score");
 var initialsInput = document.querySelector("#initials");
+var highScoresList = document.querySelector("#high-scores-list");
 
 var timer;
 var timerCount;
 var isCorrect = false;
 var finalScore;
+var highScores = [];
 
 
 // The startGame function is called when the start button is clicked
@@ -145,22 +147,46 @@ function setHighScore(event) {
             initials: initialsInput.value.trim(),
             score: timerCount
         }
-    }
-    // set new submission to local storage 
-    localStorage.setItem("highScore", JSON.stringify(highScore));
+        highScores.push(highScore)
+        console.log(highScores)
+        storeHighScores();
+        renderHighScores();
 
-    // Need to push this score to array of all high scores
-    
+        toggleVisibility("done-text")
+        toggleVisibility("high-scores")
+    }  
+  }
+
+// The following function renders items in a todo list as <li> elements
+function renderHighScores() {
+  
+    // Render a new li for each todo
+    for (var i = 0; i < highScores.length; i++) {
+  
+        var li = document.createElement("li");
+        li.textContent = highScores[i].initials + " - " + highScores[i].score;
+
+        highScoresList.appendChild(li);
+    }
   }
 
 // This function is being called below and will run when the page loads.
 function init() {
     // Get stored high scores from localStorage
-    var highScores = JSON.parse(localStorage.getItem("highScore"));
+    var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
 
-    //need to do something else
+      // If todos were retrieved from localStorage, update the todos array to it
+  if (storedHighScores !== null) {
+    highScores = storedHighScores;
   }
 
+    renderHighScores();
+  }
+
+  function storeHighScores() {
+    // Stringify and set key in localStorage to high scores array
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+  }
 
 
 startButton.addEventListener("click", startGame);
@@ -170,3 +196,5 @@ document.addEventListener('click', checkQuestionThreeAnswer);
 document.addEventListener('click', checkQuestionFourAnswer);
 document.addEventListener('click', checkQuestionFiveAnswer);
 document.addEventListener('click', setHighScore);
+
+init();
