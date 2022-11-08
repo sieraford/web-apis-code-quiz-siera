@@ -32,6 +32,7 @@ function startTimer() {
         clearInterval(timer);
         var finalScore = timerCount;
         finalScoreElement.textContent = finalScore;
+        initialsInput.value = "";
         toggleVisibility("quiz")
         toggleVisibility("done-text")
         }
@@ -136,7 +137,7 @@ function checkQuestionFiveAnswer(event){
         clearInterval(timer);
         var finalScore = timerCount;
         finalScoreElement.textContent = finalScore;
-        initialsInput.textContent = "";
+        initialsInput.value = "";
         toggleVisibility("question-five");
         toggleVisibility("done-text");
     }
