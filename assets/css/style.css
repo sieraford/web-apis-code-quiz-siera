@@ -1,9 +1,6 @@
 /* Place start page text in the center of the page*/
 .start-page {
     text-align: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 10%;
   }
 
 .btn {
@@ -36,7 +33,7 @@
     text-decoration: none;
 }
 
-.question {
+.card {
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 10%;    
@@ -52,8 +49,8 @@
     width: 40%;
     margin: 5px;
 }
- #submit {
-    margin: 8px;
+ #submit, #clear, #back {
+    margin: 1px;
     font-size: 12px;
     padding: 4px 10px;
  }
@@ -64,4 +61,8 @@
     padding-top: 10px;
     font-style: italic;
     font-size: 20px;
+ }
+
+ ol {
+    background-color: rgb(186, 151, 220);
  }

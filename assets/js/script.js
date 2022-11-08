@@ -30,6 +30,8 @@ function startTimer() {
         if (timerCount === 0) {
         // Clears interval
         clearInterval(timer);
+        var finalScore = timerCount;
+        finalScoreElement.textContent = finalScore;
         toggleVisibility("quiz")
         toggleVisibility("done-text")
         }
@@ -134,6 +136,7 @@ function checkQuestionFiveAnswer(event){
         clearInterval(timer);
         var finalScore = timerCount;
         finalScoreElement.textContent = finalScore;
+        initialsInput.textContent = "";
         toggleVisibility("question-five");
         toggleVisibility("done-text");
     }
@@ -144,12 +147,12 @@ function setHighScore(event) {
     var element = event.target;
     if(element.matches("#submit")) {
         toggleVisibility("response")
+        toggleVisibility("top-text");
         var highScore = {
             initials: initialsInput.value.trim(),
             score: timerCount
         }
         highScores.push(highScore)
-        console.log(highScores)
         storeHighScores();
         renderHighScores();
 
@@ -191,11 +194,36 @@ function init() {
   }
 
 function showHighScores() {
-    var elementsToHide = document.getElementsByClassName("hideable"); 
+    clearInterval(timer);
+    toggleVisibility("top-text");
+    var elementsToHide = document.getElementsByClassName("card"); 
     for(var i = 0; i < elementsToHide.length; i++){
         elementsToHide[i].style.display = "none";  
     }
-    toggleVisibility("high-scores")
+    toggleVisibility("high-scores");
+}
+
+function clearHighScores(event) {
+    event.stopPropagation();
+    var element = event.target;
+    if(element.matches("#clear")) {
+        highScores = [];
+        storeHighScores();
+        renderHighScores();
+}
+}
+
+function goBacktoStart(event) {
+    event.stopPropagation();
+    var element = event.target;
+    if(element.matches("#back")) {
+        timerCount = 75;
+        timerElement.textContent = timerCount;
+        toggleVisibility("high-scores");
+        toggleVisibility("start-text");
+        toggleVisibility("top-text");
+
+    }
 }
 
 
@@ -207,5 +235,6 @@ document.addEventListener('click', checkQuestionFourAnswer);
 document.addEventListener('click', checkQuestionFiveAnswer);
 document.addEventListener('click', setHighScore);
 viewHighScoresButton.addEventListener('click', showHighScores);
-
+document.addEventListener('click', clearHighScores);
+document.addEventListener('click', goBacktoStart);
 init();

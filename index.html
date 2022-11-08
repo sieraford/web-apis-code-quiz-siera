@@ -8,20 +8,20 @@
     <title>Coding Quiz</title>
 </head>
 <body>
-    <header class="start-page hideable" id="start-text">
+    <header class="start-page card" id="start-text">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
         <button type="button" class="btn start-button">Start Quiz</button>
     </header>
     <main>
-        <section class="hideable">
+        <section id="top-text" class="card">
             <div class= "timer">
                 <div class="timer-text">Time: <span class="timer-count">75</span></div>
             </div>
             <a id="view-high-scores" href="" class="high-scores">View high scores</a>
         </section>
-        <section id="quiz" class="question hideable">
-            <div id="question-one" style="display: none">
+        <section id="quiz">
+            <div id="question-one" style="display: none" class="card">
                 <h2>Commonly used data types DO NOT include:</h2>
                 <div class="answers">
                     <button class="btn answer q1">1. strings</button>
@@ -30,7 +30,7 @@
                     <button class="btn answer q1">4. numbers</button>
                 </div>
             </div>
-            <div id="question-two" style="display: none">
+            <div id="question-two" style="display: none" class="card">
                 <h2>The condition in an if / else statement is enclosed with ________.</h2>
                 <div class="answers">
                     <button class="btn answer q2">1. quotes</button>
@@ -39,7 +39,7 @@
                     <button class="btn answer q2">4. square brackets</button>
                 </div>
             </div>
-            <div id="question-three" style="display: none">
+            <div id="question-three" style="display: none" class="card">
                 <h2>Arrays in Javascript can be used to store __________.</h2>
                 <div class="answers">
                     <button class="btn answer q3">1. numbers and strings</button>
@@ -48,7 +48,7 @@
                     <button class="btn answer q3 correct">4. all of the above</button>
                 </div>
             </div>
-            <div id="question-four" style="display: none">
+            <div id="question-four" style="display: none" class="card">
                 <h2>String values must be enclosed within _________ when being assigned to variables.</h2>
                 <div class="answers">
                     <button class="btn answer q4">1. commas</button>
@@ -57,7 +57,7 @@
                     <button class="btn answer q4">4. paranthesis</button>
                 </div>
             </div>
-            <div id="question-five" style="display: none">
+            <div id="question-five" style="display: none" class="card">
                 <h2>A very useful tool used during development and debugging for printing content to the debugger is:</h2>
                 <div class="answers">
                     <button class="btn answer q5">1. Javascript</button>
@@ -67,17 +67,17 @@
                 </div>
             </div>
         </section>
-        <div id="done-text" style="display: none" class="question hideable">
+        <div id="done-text" style="display: none" class="card">
             <h2>All done!</h2>
             <p>Your final score is <span class="final-score"></span>.</p>
             <p>Enter initials: <input id="initials" type="text"/> <button id="submit" class="btn">Submit</button> </p>
         </div>
-        <p id="response" class="question hideable" style="display: none"></p>
-        <div id="high-scores" style="display: none" class="question">
+        <p id="response" class="card" style="display: none"></p>
+        <div id="high-scores" style="display: none" class="card">
             <h2>High scores</h2>
-            <ul id="high-scores-list"></ul>
-            <button class="btn">Go back</button>
-            <button class="btn">Clear high scores</button>
+            <ol id="high-scores-list"></ol>
+            <button id="back" class="btn">Go back</button>
+            <button id="clear" class="btn">Clear high scores</button>
         </div> 
     </main>
 
