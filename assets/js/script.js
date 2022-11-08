@@ -33,7 +33,12 @@ function startTimer() {
         var finalScore = timerCount;
         finalScoreElement.textContent = finalScore;
         initialsInput.value = "";
-        toggleVisibility("quiz")
+        // need to find a way to hide the quiz card that user is on. don't want the top-text hidden though
+        var elementsToHide = document.getElementsByClassName("card"); 
+        for(var i = 0; i < elementsToHide.length; i++){
+        elementsToHide[i].style.display = "none";  
+        }
+        toggleVisibility("top-text")
         toggleVisibility("done-text")
         }
 }, 1000);
@@ -147,7 +152,8 @@ function setHighScore(event) {
     event.preventDefault();
     var element = event.target;
     if(element.matches("#submit")) {
-        toggleVisibility("response")
+        var x = document.getElementById("response");
+        x.style.display = "none";
         toggleVisibility("top-text");
         var highScore = {
             initials: initialsInput.value.trim(),
